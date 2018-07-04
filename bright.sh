@@ -7,6 +7,7 @@ scaleeight=0.04835
 percent=$(echo $brightness $scale | awk '{printf "%d\n",$1*$2}')
 eightbit=$(echo $brightness $scaleeight | awk '{printf "%d\n",$1*$2}')
 
+# TODO: detect devices rather than brute forcing
 echo $percent
 echo "Probing i2c devices"
 for d in $(ls /dev/i2c-*); do
