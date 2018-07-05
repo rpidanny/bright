@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # install dependencies
-sudo apt install git build-essentials ddccontrol i2c-tools
+sudo apt install git build-essentials i2c-tools ddccontrol ddccontrol-db
 
 # add i2c udev rules
 sudo groupadd --system i2c-dev

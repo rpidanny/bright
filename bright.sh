@@ -3,10 +3,10 @@ scale=0.01899
 scaleeight=0.04835
 
 # detect i2c displays supporting VESA
-if [ -z ${GENERIC_MONITORS} ] ;
+if [ -z ${GENERIC_DISPLAYS} ] ;
 then
   echo "Looking for i2c Displays"
-  GENERIC_MONITORS=$(ddccontrol -p -c | grep "Reading EDID and initializing DDC/CI at bus" | tr --delete '...' | awk '{print $8}')
+  GENERIC_DISPLAYS=$(ddccontrol -p -c | grep "Reading EDID and initializing DDC/CI at bus" | tr --delete '...' | awk '{print $8}')
 fi
 
 # detect HID displays
@@ -25,7 +25,8 @@ while inotifywait -q -e modify /sys/class/backlight/intel_backlight/brightness; 
   for a in $HID_DISPLAYS; do
     acdcontrol -s $a $eightbit
   done
-  for d in ${GENERIC_MONITORS}; do
-    ddccontrol ${d} -f -r 0x10 -w $percent
-  done
+  # TODO: Filter out devices already included in hid
+  # for d in ${GENERIC_DISPLAYS}; do
+  #   ddccontrol ${d} -f -r 0x10 -w $percent
+  # done
 done
