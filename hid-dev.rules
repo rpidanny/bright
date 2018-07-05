@@ -1,1 +1,1 @@
-KERNEL=="hiddev*", GROUP="hid-dev", MODE="0660"
+KERNEL=="hiddev*", SUBSYSTEM=="usbmisc", GROUP="hid-dev", MODE="0660"
