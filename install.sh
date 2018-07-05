@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-# install dependencies
-sudo apt install git build-essentials i2c-tools ddccontrol ddccontrol-db
-
-# add i2c udev rules
+# Install ddccontrol and add i2c udev rules
+sudo apt install i2c-tools ddccontrol ddccontrol-db
 sudo groupadd --system i2c-dev
 sudo cp i2c-dev.rules /etc/udev/rules.d/
 sudo usermod -a -G i2c-dev $USERNAME

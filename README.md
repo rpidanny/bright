@@ -1,2 +1,37 @@
 # bright
-Sync brightness across all displays on Linux
+Sync brightness across all displays on Linux.
+
+## Getting Started
+
+### Prerequisites
+
+__Disclaimer:__ _bright isn't garunteed to work on all Linux Distos, Feel free to submit bug reports._
+
+* Linux operating system
+* `curl` or `wget` should be installed
+* `git` should be installed
+* `build-essentials` should be installed
+
+### Installation
+bright is installed by running one of the following commands in your terminal. You can install this via the command-line with either `curl` or `wget`.
+
+#### via curl
+
+```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/rpidanny/bright/master/install.sh)"
+```
+
+#### via wget
+
+```shell
+sh -c "$(wget https://raw.githubusercontent.com/rpidanny/bright/master/install.sh -O -)"
+```
+
+## Wishlist
+
+* [x] Support Apple Displays
+* [ ] Support Generic VESA Compatible Displays
+
+## License
+
+This project is licensed under the MIT License - see the [license file](LICENSE) file for details
