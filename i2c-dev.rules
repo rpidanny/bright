@@ -1,0 +1,1 @@
+KERNEL=="i2c-[0-9]*", SUBSYSTEM=="i2c-dev", GROUP="i2c-dev", MODE="0660"
