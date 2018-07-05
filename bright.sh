@@ -13,7 +13,7 @@ fi
 if [ -z ${HID_DISPLAYS} ] ;
 then
   echo "Looking for HID Displays"
-  HID_DISPLAYS=$(sudo acdcontrol -s -d /dev/usb/hiddev* | tr --delete ':' | awk '{print $1} ')
+  HID_DISPLAYS=$(acdcontrol -s -d /dev/usb/hiddev* | tr --delete ':' | awk '{print $1} ')
 fi
 
 # listen for brigntness change
