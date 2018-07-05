@@ -6,7 +6,8 @@ scaleeight=0.04835
 if [ -z ${GENERIC_DISPLAYS} ] ;
 then
   echo "Looking for i2c Displays"
-  GENERIC_DISPLAYS=$(ddccontrol -p -c | grep "Reading EDID and initializing DDC/CI at bus" | tr --delete '...' | awk '{print $8}')
+  GENERIC_DISPLAYS=$(ddccontrol -p | grep "Reading EDID and initializing DDC/CI at bus" | tr --delete '...' | awk '{print $8}')
+  echo $GENERIC_DISPLAYS
 fi
 
 # detect HID displays
@@ -14,10 +15,11 @@ if [ -z ${HID_DISPLAYS} ] ;
 then
   echo "Looking for HID Displays"
   HID_DISPLAYS=$(acdcontrol -s -d /dev/usb/hiddev* | tr --delete ':' | awk '{print $1} ')
+  echo $HID_DISPLAYS
 fi
 
 # listen for brigntness change
-while inotifywait -q -e modify /sys/class/backlight/intel_backlight/brightness; do
+while inotifywait -q -e modify /sys/class/backlight/intel_backlight/brightness -o /dev/null; do
   brightness=$(cat /sys/class/backlight/intel_backlight/brightness)
   percent=$(echo $brightness $scale | awk '{printf "%d\n",$1*$2}')
   eightbit=$(echo $brightness $scaleeight | awk '{printf "%d\n",$1*$2}')
