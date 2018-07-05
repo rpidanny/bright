@@ -6,7 +6,7 @@ scaleeight=0.04835
 if [ -z ${GENERIC_DISPLAYS} ] ;
 then
   echo "Looking for i2c Displays"
-  GENERIC_DISPLAYS=$(ddccontrol -p | grep "Reading EDID and initializing DDC/CI at bus" | tr --delete '...' | awk '{print $8}')
+  GENERIC_DISPLAYS=$(ddccontrol -p 2> /dev/null | grep "Reading EDID and initializing DDC/CI at bus" | tr --delete '...' | awk '{print $8}')
   echo $GENERIC_DISPLAYS
 fi
 
