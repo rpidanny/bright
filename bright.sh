@@ -7,7 +7,6 @@ if [ -z ${GENERIC_MONITORS} ] ;
 then
   echo "Looking for i2c Displays"
   GENERIC_MONITORS=$(ddccontrol -p -c | grep "Reading EDID and initializing DDC/CI at bus" | tr --delete '...' | awk '{print $8}')
-  export GENERIC_MONITORS
 fi
 
 # detect HID displays
@@ -24,7 +23,7 @@ while inotifywait -q -e modify /sys/class/backlight/intel_backlight/brightness; 
   eightbit=$(echo $brightness $scaleeight | awk '{printf "%d\n",$1*$2}')
 
   for a in $HID_DISPLAYS; do
-    sudo acdcontrol -s $a $eightbit
+    acdcontrol -s $a $eightbit
   done
   for d in ${GENERIC_MONITORS}; do
     ddccontrol ${d} -f -r 0x10 -w $percent
