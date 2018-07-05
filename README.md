@@ -31,6 +31,7 @@ sh -c "$(wget https://raw.githubusercontent.com/rpidanny/bright/master/install.s
 
 * [x] Support Apple Displays
 * [ ] Support Generic VESA Compatible Displays
+* [ ] Register as system service.
 
 ## License
 
