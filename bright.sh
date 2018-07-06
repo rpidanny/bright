@@ -40,6 +40,6 @@ while inotifywait -q -e modify /sys/class/backlight/intel_backlight/brightness -
     acdcontrol -s $a $eightbit
   done
   for d in ${GENERIC_DISPLAYS}; do
-    ddccontrol ${d} -f -r 0x10 -w $percent
+    ddccontrol ${d} -f -r 0x10 -w $percent &> /dev/null
   done
 done
