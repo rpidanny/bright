@@ -10,21 +10,22 @@ echo_green () {
   echo -e "${GREEN}$1${NC}"
 }
 
-# detect i2c displays supporting VESA
-if [ -z ${GENERIC_DISPLAYS} ] ;
-then
-  echo_green "Looking for i2c Displays"
-  GENERIC_DISPLAYS=$(ddccontrol -p 2> /dev/null | grep "Reading EDID and initializing DDC/CI at bus" | tr --delete '...' | awk '{print $8}')
-  echo $GENERIC_DISPLAYS
-  echo ""
-fi
-
 # detect HID displays
 if [ -z ${HID_DISPLAYS} ] ;
 then
   echo_green "Looking for HID Displays"
   HID_DISPLAYS=$(acdcontrol -s -d /dev/usb/hiddev* | tr --delete ':' | awk '{print $1} ')
   echo $HID_DISPLAYS
+  echo ""
+fi
+
+# TODO: Filter out devices already included in hid
+# detect i2c displays supporting VESA
+if [ -z ${GENERIC_DISPLAYS} ] ;
+then
+  echo_green "Looking for i2c Displays"
+  GENERIC_DISPLAYS=$(ddccontrol -p 2> /dev/null | grep "Reading EDID and initializing DDC/CI at bus" | tr --delete '...' | awk '{print $8}')
+  echo $GENERIC_DISPLAYS
   echo ""
 fi
 
@@ -38,8 +39,7 @@ while inotifywait -q -e modify /sys/class/backlight/intel_backlight/brightness -
   for a in $HID_DISPLAYS; do
     acdcontrol -s $a $eightbit
   done
-  # TODO: Filter out devices already included in hid
-  # for d in ${GENERIC_DISPLAYS}; do
-  #   ddccontrol ${d} -f -r 0x10 -w $percent
-  # done
+  for d in ${GENERIC_DISPLAYS}; do
+    ddccontrol ${d} -f -r 0x10 -w $percent
+  done
 done
