@@ -31,8 +31,10 @@ sh -c "$(wget https://raw.githubusercontent.com/rpidanny/bright/master/install.s
 
 ## Wishlist
 
-* [x] Support Apple Displays
-* [ ] Support Generic VESA Compatible Displays
+* [x] Support Apple Displays with HID Controls
+* [ ] Support Generic DDC/CI Compatible Displays
+  * [x] Update Display Brightness
+  * [ ] Filter out HID Displays as it supports DDC/CI aswell
 * [ ] Register as system service.
 
 ## License
