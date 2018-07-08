@@ -1,0 +1,13 @@
+[Unit]
+Description=Linux Brightness Sync Service
+After=network.target
+
+[Service]
+Restart=always
+RestartSec=5
+ExecStart=/bin/bash /home/abhishek/workspace/projects/personal/bright/bright.sh &
+
+[Install]
+# WantedBy=multi-user.target
+# use this if you want to start on boot
+WantedBy=default.target

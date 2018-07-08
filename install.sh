@@ -16,3 +16,6 @@ sudo cp hid-dev.rules /etc/udev/rules.d/
 sudo usermod -a -G hid-dev $USERNAME
 
 # TODO: install bright
+sudo mkdir -p /etc/brightSync
+sudo cp bright.sh /etc/brightSync
+sudo cp bright.service /etc/systemd/system/
