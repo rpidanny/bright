@@ -1,5 +1,6 @@
 # bright
 
+![alt text](https://github.com/rpidanny/assets/raw/master/bright/bright_480.gif "bright in action")
 Sync brightness across all displays on Linux.
 
 ## Getting Started
