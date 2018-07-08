@@ -8,7 +8,7 @@ Sync brightness across all displays on Linux.
 
 __Disclaimer:__ _bright isn't garunteed to work on all Linux Distos, Feel free to submit bug reports._
 
-* Linux operating system
+* Debain 7 and newer or Ubuntu 15.04 and newer
 * `curl` or `wget` should be installed
 * `git` should be installed
 * `build-essentials` should be installed
