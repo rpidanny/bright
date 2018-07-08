@@ -29,6 +29,17 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/rpidanny/bright/master/ins
 sh -c "$(wget https://raw.githubusercontent.com/rpidanny/bright/master/install.sh -O -)"
 ```
 
+### Start Bright
+
+```shell
+sudo systemctl start bright
+```
+
+Check the status of bright using
+```shell
+sudo systemctl status bright
+```
+
 ## Wishlist
 
 * [x] Support Apple Displays with HID Controls
