@@ -33,9 +33,9 @@ sh -c "$(wget https://raw.githubusercontent.com/rpidanny/bright/master/install.s
 
 * [x] Support Apple Displays with HID Controls
 * [ ] Support Generic DDC/CI Compatible Displays
-  * [x] Update Display Brightness
+  * [ ] Update Display Brightness
   * [ ] Filter out HID Displays as it supports DDC/CI aswell
-* [ ] Register as system service
+* [x] Register as system service
 * [ ] Dynamic Brightness Scale (Different manufactures have different brightness scales)
 
 ## License
