@@ -29,15 +29,37 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/rpidanny/bright/master/ins
 sh -c "$(wget https://raw.githubusercontent.com/rpidanny/bright/master/install.sh -O -)"
 ```
 
-### Start Bright
+## Running Bright
+
+# start
 
 ```shell
 sudo systemctl start bright
 ```
 
-Check the status of bright using
+## stop
+```shell
+sudo systemctl stop bright
+```
+
+## restart
+```shell
+sudo systemctl restart bright
+```
+
+## status
 ```shell
 sudo systemctl status bright
+```
+
+## enable auto start
+```shell
+sudo systemctl enable bright
+```
+
+## disable auto start
+```shell
+sudo systemctl disable bright
 ```
 
 ## Wishlist
