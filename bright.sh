@@ -21,13 +21,13 @@ fi
 
 # TODO: Filter out devices already included in hid
 # detect i2c displays supporting VESA
-if [ -z ${GENERIC_DISPLAYS} ] ;
-then
-  echo_green "Looking for i2c Displays"
-  GENERIC_DISPLAYS=$(ddccontrol -p 2> /dev/null | grep "Reading EDID and initializing DDC/CI at bus" | tr --delete '...' | awk '{print $8}')
-  echo $GENERIC_DISPLAYS
-  echo ""
-fi
+# if [ -z ${GENERIC_DISPLAYS} ] ;
+# then
+#   echo_green "Looking for i2c Displays"
+#   GENERIC_DISPLAYS=$(ddccontrol -p 2> /dev/null | grep "Reading EDID and initializing DDC/CI at bus" | tr --delete '...' | awk '{print $8}')
+#   echo $GENERIC_DISPLAYS
+#   echo ""
+# fi
 
 # listen for brigntness change
 echo_green "Listening for brightness change..."
