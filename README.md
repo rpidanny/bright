@@ -31,33 +31,33 @@ sh -c "$(wget https://raw.githubusercontent.com/rpidanny/bright/master/install.s
 
 ## Running Bright
 
-# start
+### start
 
 ```shell
 sudo systemctl start bright
 ```
 
-## stop
+### stop
 ```shell
 sudo systemctl stop bright
 ```
 
-## restart
+### restart
 ```shell
 sudo systemctl restart bright
 ```
 
-## status
+### status
 ```shell
 sudo systemctl status bright
 ```
 
-## enable auto start
+### enable auto start
 ```shell
 sudo systemctl enable bright
 ```
 
-## disable auto start
+### disable auto start
 ```shell
 sudo systemctl disable bright
 ```
