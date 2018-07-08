@@ -40,26 +40,31 @@ sudo systemctl start bright
 ```
 
 ### stop
+
 ```shell
 sudo systemctl stop bright
 ```
 
 ### restart
+
 ```shell
 sudo systemctl restart bright
 ```
 
 ### status
+
 ```shell
 sudo systemctl status bright
 ```
 
 ### enable auto start
+
 ```shell
 sudo systemctl enable bright
 ```
 
 ### disable auto start
+
 ```shell
 sudo systemctl disable bright
 ```
