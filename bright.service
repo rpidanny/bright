@@ -9,5 +9,6 @@ ExecStart=/bin/bash /etc/brightSync/bright.sh &
 
 [Install]
 # WantedBy=multi-user.target
+WantedBy=default.target
 # use this if you want to start on boot
 WantedBy=default.target
