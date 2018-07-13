@@ -73,7 +73,7 @@ sudo systemctl disable bright
 
 * [x] Support Apple Displays with HID Controls
 * [ ] Support Generic DDC/CI Compatible Displays
-  * [ ] Update Display Brightness
+  * [x] Update Display Brightness
   * [ ] Filter out HID Displays as it supports DDC/CI aswell
 * [x] Register as system service
 * [ ] Dynamic Brightness Scale (Different manufactures have different brightness scales)
