@@ -22,13 +22,13 @@ bright is installed by running one of the following commands in your terminal. Y
 #### via curl
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/rpidanny/bright/master/install.sh)"
+sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/rpidanny/bright/master/install.sh)"
 ```
 
 #### via wget
 
 ```shell
-sh -c "$(wget https://raw.githubusercontent.com/rpidanny/bright/master/install.sh -O -)"
+sudo sh -c "$(wget https://raw.githubusercontent.com/rpidanny/bright/master/install.sh -O -)"
 ```
 
 ## Running Bright
