@@ -29,6 +29,7 @@ sudo usermod -a -G hid-dev $USERNAME
 
 # TODO: install bright
 info "Installing bright"
+sudo apt install -f inotify-tools
 sudo mkdir -p /etc/brightSync
 git clone https://github.com/rpidanny/bright.git /etc/brightSync
 sudo cp bright.sh /etc/brightSync
