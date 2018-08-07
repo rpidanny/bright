@@ -35,6 +35,8 @@ info "Installing acdcontrol"
 git clone https://github.com/warvariuc/acdcontrol.git
 cd acdcontrol && make
 sudo cp acdcontrol /usr/bin
+cd ../
+rm -rf acdcontrol
 
 info "Installing inotify-tools"
 sudo apt install -y inotify-tools
