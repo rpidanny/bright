@@ -12,7 +12,7 @@ echo_green () {
 
 # detect HID displays
 echo_green "Looking for HID Displays"
-HID_DISPLAYS=$(acdcontrol -s -d /dev/usb/hiddev* | tr --delete ':' | awk '{print $1} ')
+HID_DISPLAYS=$(acdcontrol -s -d /dev/usb/hiddev* | grep -v 0x9a40 | tr --delete ':' | awk '{print $1} ')
 echo $HID_DISPLAYS
 echo ""
 
@@ -40,14 +40,14 @@ while inotifywait -q -e modify /sys/class/backlight/intel_backlight/brightness -
   percent=$(echo $brightness $SCALEP | awk '{printf "%d\n",$1*$2}')
   eightbit=$(echo $brightness $SCALEE | awk '{printf "%d\n",$1*$2}')
 
-  if [ ${LGUF_DISPLAYS} ];
-  then
+  for l in ${LGUF_DISPLAYS}; do
     lgufb $percent
-  fi
+  done
 
   for a in $HID_DISPLAYS; do
     acdcontrol -s $a $eightbit
   done
+
   for d in ${I2C_DISPLAYS}; do
     ddccontrol ${d} -f -r 0x10 -w $percent &> /dev/null
   done
