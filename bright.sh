@@ -16,6 +16,12 @@ HID_DISPLAYS=$(acdcontrol -s -d /dev/usb/hiddev* | tr --delete ':' | awk '{print
 echo $HID_DISPLAYS
 echo ""
 
+# detect LG Ultrafine displays
+echo_green "Looking for LG Ultrafine Displays"
+LGUF_DISPLAYS=$(lsusb | grep 043e:9a40)
+echo $LGUF_DISPLAYS
+echo ""
+
 # Current implementation: only look for i2c displays if hid displays not found
 # TODO: scan independent to hid display and filter out devices already included in hid
 # detect i2c displays supporting VESA
@@ -33,6 +39,11 @@ while inotifywait -q -e modify /sys/class/backlight/intel_backlight/brightness -
   brightness=$(cat /sys/class/backlight/intel_backlight/brightness)
   percent=$(echo $brightness $SCALEP | awk '{printf "%d\n",$1*$2}')
   eightbit=$(echo $brightness $SCALEE | awk '{printf "%d\n",$1*$2}')
+
+  if [ ${LGUF_DISPLAYS} ];
+  then
+    lgufb $percent
+  fi
 
   for a in $HID_DISPLAYS; do
     acdcontrol -s $a $eightbit
