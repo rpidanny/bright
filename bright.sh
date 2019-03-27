@@ -1,7 +1,7 @@
 #!/bin/bash
 
-SCALEP=0.01899 # scale for 0 - 100
-SCALEE=0.04835 # scale for 0 - 255
+SCALEP=0.06600 # scale for 0 - 100
+SCALEE=0.16831 # scale for 0 - 255
 
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
