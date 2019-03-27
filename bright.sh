@@ -25,13 +25,13 @@ echo ""
 # Current implementation: only look for i2c displays if hid displays not found
 # TODO: scan independent to hid display and filter out devices already included in hid
 # detect i2c displays supporting VESA
-if [ -z ${HID_DISPLAYS} ] ;
-then
-  echo_green "Looking for i2c Displays"
-  I2C_DISPLAYS=$(ddccontrol -p 2> /dev/null | grep "Reading EDID and initializing DDC/CI at bus" | tr --delete '...' | awk '{print $8}')
-  echo $I2C_DISPLAYS
-  echo ""
-fi
+# if [ -z ${HID_DISPLAYS} ] ;
+# then
+#   echo_green "Looking for i2c Displays"
+#   I2C_DISPLAYS=$(ddccontrol -p 2> /dev/null | grep "Reading EDID and initializing DDC/CI at bus" | tr --delete '...' | awk '{print $8}')
+#   echo $I2C_DISPLAYS
+#   echo ""
+# fi
 
 # listen for brigntness change
 echo_green "Listening for brightness change..."
