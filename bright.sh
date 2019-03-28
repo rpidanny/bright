@@ -10,6 +10,10 @@ echo_green () {
   echo -e "${GREEN}$1${NC}"
 }
 
+# Fixes Error opening terminal
+# Cant open interractive terminal without this
+export TERM=linux
+
 # detect HID displays
 echo_green "Looking for HID Displays"
 HID_DISPLAYS=$(acdcontrol -s -d /dev/usb/hiddev* | grep -v 0x9a40 | tr --delete ':' | awk '{print $1} ')
